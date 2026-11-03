@@ -1,0 +1,20 @@
+name: Approval Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate Terraform Plan
+        run: echo "Terraform Plan completed"
+
+  apply:
+    needs: plan
+    environment: prod
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Simulate Terraform Apply
+        run: echo "Terraform Apply approved!"
